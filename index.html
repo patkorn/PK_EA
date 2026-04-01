@@ -70,7 +70,7 @@
         
 
         let uid = liff.getDecodedIDToken().sub
-$.post('https://script.google.com/macros/s/AKfycbx-uEtTxPBUi0uF4_hbya3aQxglqm287j4RhGXgqEhlhCZbberUfUOk_c3l2aoxqJx5/exec', { opt: 'register', id: id,fname:fname, uid: uid }, function (res) {
+$.post('https://script.google.com/macros/s/AKfycbxyP5t1_wnWUNoVl2DEMezQA4bsnKPYV6B_3WH6srHtYhjVn67FKqR-ZBMDeKgwQURR/exec', { opt: 'register', id: id,fname:fname, uid: uid }, function (res) {
             if (res != 'yes') {
               console.log(res)
               alert('🚫เข้าสู่ระบบไม่สำเร็จ\n✅เลขพอร์ต(ถูกต้อง)\n❌ชื่อนามสกุล ผิด!!!')
