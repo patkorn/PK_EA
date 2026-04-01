@@ -73,7 +73,7 @@
 $.post('https://script.google.com/macros/s/AKfycbxyP5t1_wnWUNoVl2DEMezQA4bsnKPYV6B_3WH6srHtYhjVn67FKqR-ZBMDeKgwQURR/exec', { opt: 'register', id: id,fname:fname, uid: uid }, function (res) {
             if (res != 'yes') {
               console.log(res)
-              alert('🚫เข้าสู่ระบบไม่สำเร็จ\n✅เลขพอร์ต(ถูกต้อง)\n❌ชื่อนามสกุล ผิด!!!')
+              alert('🚫เข้าสู่ระบบไม่สำเร็จ\n✅เลขพอร์ต(ถูกต้อง)\n❌ชื่อ นามสกุล ไม่ตรงกับข้อมูลลงทะเบียน!!')
               liff.closeWindow()
             }else{
                alert('✅เข้าสู่ระบบเรียบร้อยแล้ว')
