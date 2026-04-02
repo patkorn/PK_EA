@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PK_EA Trader</title>
+    <title>PK_EA Trader - Login</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
         integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -14,42 +14,119 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap');
 
-        * {
+        body {
             font-family: 'Prompt', sans-serif;
+            /* พื้นหลังโทนเทรดเดอร์ (Dark/Blue gradient) */
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            margin: 0;
         }
-        
-        /* ตกแต่งช่องที่ล็อคไว้ให้ดูเป็นสีเทาชัดเจนขึ้น */
+
+        /* กล่อง Glassmorphism (ใสๆ เบลอๆ) */
+        .login-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 25px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .logo-img {
+            max-width: 150px; /* ปรับขนาดโลโก้ตรงนี้ได้ครับ */
+            height: auto;
+            margin-bottom: 20px;
+            filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.5));
+        }
+
+        .form-label {
+            font-size: 0.9rem;
+            color: #a8b2d1;
+            text-align: left;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            background-color: rgba(0, 0, 0, 0.2) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: #ffffff !important;
+            border-radius: 10px;
+            padding: 12px;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+            border-color: #00d2ff !important;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+        }
+
+        /* ตกแต่งช่องที่ล็อคไว้ */
         input[readonly] {
-            background-color: #e9ecef;
+            background-color: rgba(255, 255, 255, 0.05) !important;
+            color: #00d2ff !important;
             cursor: not-allowed;
+            border: 1px dashed rgba(255, 255, 255, 0.2) !important;
+        }
+
+        /* ปุ่มกดสไตล์ Forex (Gradient Blue) */
+        .btn-trade {
+            background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.4);
+        }
+
+        .btn-trade:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.6);
+            color: white;
         }
     </style>
-
 </head>
 
 <body>
-    <div class="container mt-3">
-        <div class="mx-auto text-center mt-3">
-            <i class='bx bxs-color bx-lg bx-football bx-tada' style='color:#ec6e14'></i>
-            <h1>เข้าสู่ระบบใช้งาน</h1>
+    <div class="container d-flex justify-content-center">
+        <div class="login-card text-center">
             
-            <div class="mb-3 mt-3">
-                <label for="id"><i class='bx bx-barcode-reader bx-sm' style='color:#1186ec'></i> เลขUID:[UID Number]</label>
-                <input type="text" class="form-control text-center" id="id" maxlength="9" placeholder="กรอกเลข UID PU Prime ให้ถูกต้อง">
+            <img src="https://cdn.jsdelivr.net/gh/patkorn/piclogo/PK_EA.png" alt="PK_EA Logo" class="logo-img">
+            
+            <h3 class="mb-4 fw-bold">เข้าสู่ระบบ สมาชิกVIP</h3>
+            
+            <div class="mb-4 text-start">
+                <label for="id" class="form-label"><i class='bx bx-id-card' style='color:#00d2ff'></i> เลข UID </label>
+                <input type="text" class="form-control text-center fs-5 fw-bold" id="id" maxlength="9" placeholder="กรอกเลข UID PU Prime">
             </div>
 
-            <div class="mb-3 mt-3">
-                <label for="fname"><i class='bx bxs-user-pin bx-sm' style='color:#1186ec'></i> ชื่อผู้ใช้งาน (ดึงข้อมูลอัตโนมัติ)</label>
-                <input type="text" class="form-control text-center text-primary fw-bold" id="fname" name="fname" placeholder="กำลังดึงข้อมูล..." readonly required>
+            <div class="mb-4 text-start">
+                <label for="fname" class="form-label"><i class='bx bx-user-circle' style='color:#00d2ff'></i> บัญชี LINE ของคุณ</label>
+                <input type="text" class="form-control text-center fw-bold" id="fname" name="fname" placeholder="กำลังโหลดข้อมูล..." readonly required>
             </div>
             
-            <div class="text-center mt-4">
-                <button type="button" class="btn btn-lg btn-primary w-75" id="submit-btn">เข้าสู่ระบบ</button>
-                <button type="button" class="btn btn-lg btn-primary w-75" id="bt2" disabled>
+            <div class="text-center mt-4 pt-2">
+                <button type="button" class="btn btn-trade w-100 fs-5" id="submit-btn">
+                    <i class='bx bx-log-in-circle'></i> เข้าสู่ระบบ
+                </button>
+                <button type="button" class="btn btn-trade w-100 fs-5" id="bt2" disabled>
                     <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                    รอสักครู่...
+                    กำลังตรวจสอบ...
                 </button>
             </div>
         </div>
@@ -65,7 +142,7 @@
         });
 
         liff.ready.then(() => {
-            // 1. ดึงชื่อโปรไฟล์จาก LINE มาใส่ในช่อง fname อัตโนมัติ
+            // ดึงชื่อโปรไฟล์จาก LINE
             liff.getProfile().then(profile => {
                 $('#fname').val(profile.displayName);
             }).catch(err => {
@@ -73,7 +150,6 @@
                 $('#fname').val('ไม่สามารถดึงข้อมูลได้');
             });
 
-            // 2. ผูกปุ่มเข้าสู่ระบบกับฟังก์ชัน submit
             let btn = document.getElementById('submit-btn');
             btn.addEventListener('click', submit);
         });
@@ -86,31 +162,27 @@
         if(id != '' && fname != '') {
             $("#submit-btn").hide();
             $("#bt2").show();
-            console.log('submit');
 
             let uid = liff.getDecodedIDToken().sub;
             
             $.post('https://script.google.com/macros/s/AKfycbzSD49ItYKTlOEiWff3ETZ56gcfrsLjP6fwpSh2bYaZfPOJwOfzJkeUFKPaXRqSIoQ/exec', { opt: 'register', id: id, fname: fname, uid: uid }, function (res) {
                 if (res != 'yes') {
-                    console.log(res);
-                    // ปรับแก้ข้อความ Alert เล็กน้อย
-                    alert('🚫เข้าสู่ระบบไม่สำเร็จ\nกรุณาตรวจสอบเลข UID ของคุณอีกครั้ง');
+                    alert('🚫 เข้าสู่ระบบไม่สำเร็จ\nไม่พบเลข UID นี้ในระบบ กรุณาตรวจสอบอีกครั้ง');
                     $("#submit-btn").show();
                     $("#bt2").hide();
                 } else {
-                    alert('✅เข้าสู่ระบบเรียบร้อยแล้ว');
+                    alert('✅ เข้าสู่ระบบเรียบร้อยแล้ว');
                     $("#submit-btn").show();
                     $("#bt2").hide();
                     liff.closeWindow();
                 }
             }).fail(function() {
-                // เผื่อกรณี Google Apps Script โหลดไม่ขึ้น (กันปุ่มค้าง)
                 alert('⚠️ ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้ กรุณาลองใหม่อีกครั้ง');
                 $("#submit-btn").show();
                 $("#bt2").hide();
             });
         } else {
-            alert('กรุณากรอกข้อมูลเลข UID ให้ครบถ้วน!!');
+            alert('⚠️ กรุณากรอกข้อมูลเลข UID ให้ครบถ้วน!!');
         }
     }
 </script>
