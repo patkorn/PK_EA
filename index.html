@@ -90,7 +90,7 @@
 
             let uid = liff.getDecodedIDToken().sub;
             
-            $.post('https://script.google.com/macros/s/AKfycbxuRa1odY8o64xT8re2IYnvyJO6L5Z9F6PMkRNkfEBqW8Ur8tE6pGFOeQlx0BThQwLh/exec', { opt: 'register', id: id, fname: fname, uid: uid }, function (res) {
+            $.post('https://script.google.com/macros/s/AKfycbzSD49ItYKTlOEiWff3ETZ56gcfrsLjP6fwpSh2bYaZfPOJwOfzJkeUFKPaXRqSIoQ/exec', { opt: 'register', id: id, fname: fname, uid: uid }, function (res) {
                 if (res != 'yes') {
                     console.log(res);
                     // ปรับแก้ข้อความ Alert เล็กน้อย
